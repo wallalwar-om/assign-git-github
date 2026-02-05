@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Data</title>
+</head>
+<body>
+    <h2>Submit User Info</h2>
+
+    <form action="/submit" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name"><br><br>
+
+        <label>Age:</label><br>
+        <input type="number" name="age"><br><br>
+
+        <label>City:</label><br>
+        <input type="text" name="city"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error is not none %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+    
