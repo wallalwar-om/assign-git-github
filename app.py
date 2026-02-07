@@ -10,6 +10,8 @@ MONGO_URL = os.getenv("MONGO_URL")
 client = MongoClient(MONGO_URL)
 db = client['user_database']
 users_collection = db['users']
+todo_collection = db['todo_items']
+
 
 @app.route('/')
 def index():
@@ -40,6 +42,19 @@ def api():
     with open('data.json', 'r') as f:
         data = json.load(f)
     return data
+
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    try:
+        item = {
+            "itemName": request.form['itemName'],
+            "itemDescription": request.form['itemDescription']
+        }
+        todo_collection.insert_one(item)
+        return "To-Do item added successfully!"
+    except Exception as e:
+        return "Error while adding To-Do item", 500
+
 
 
 if __name__ == '__main__':
