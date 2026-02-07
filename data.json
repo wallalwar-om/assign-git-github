@@ -1,0 +1,20 @@
+{
+  "api_name": "User Management API",
+  "version": "1.1",
+  "status": "running",
+  "maintainer": "Om Wallalwar",
+  "environment": "development",
+  "features": [
+    "User data submission",
+    "MongoDB integration",
+    "Form-based input",
+    "JSON-based API response"
+  ],
+  "endpoints": {
+    "/": "User form page",
+    "/submit": "Submit user data to database",
+    "/success": "Submission success message",
+    "/api": "Returns API metadata in JSON format"
+  },
+  "timestamp": "2026-02-06T01:45:00Z"
+}
