@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 app = Flask(__name__)
@@ -33,6 +34,12 @@ def submit():
 @app.route('/success')
 def success():
     return "Data submitted successfully!"
+
+@app.route('/api')
+def api():
+    with open('data.json', 'r') as f:
+        data = json.load(f)
+    return data
 
 
 if __name__ == '__main__':
