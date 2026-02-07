@@ -41,6 +41,11 @@ def api():
         data = json.load(f)
     return data
 
+@app.route('/todo')
+def todo():
+    return render_template('todo.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
